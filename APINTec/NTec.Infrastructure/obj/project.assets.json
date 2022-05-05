@@ -5776,11 +5776,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
+      "projectUniqueName": "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
       "projectName": "NTec.Infrastructure",
-      "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
+      "projectPath": "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\smota\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\obj\\",
+      "outputPath": "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5800,17 +5800,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\NTec.Application.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\NTec.Application.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Application\\NTec.Application.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Application\\NTec.Application.csproj"
             },
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj"
             },
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Services\\NTec.Domain.Services.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Services\\NTec.Domain.Services.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Domain.Services\\NTec.Domain.Services.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Domain.Services\\NTec.Domain.Services.csproj"
             },
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj"
             }
           }
         }

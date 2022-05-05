@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uO4mygMaBPT7r0y10+/JRjoF/s7zl7QpHuTH4Q7RWttSkNgao7CM0aP3ueqh0mgPH0P49hYs/gp2FTbtzLw9ng==",
+  "dgSpecHash": "07R7GZ8KcftZv409TB9Kcg6y9VJkwNrkpoIgJu0CHSUBd0lVAdSfSmCUwW5TE9PhwOUCo6lephpFOGjdZhk03Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\NTec.Application.csproj",
+  "projectFilePath": "C:\\GitProjects\\APINTec\\NTec.Application\\NTec.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
