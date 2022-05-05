@@ -1,0 +1,15 @@
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Application.deps.json
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Application.dll
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Application.pdb
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Domain.Core.dll
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Domain.dll
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Domain.Core.pdb
+C:\Users\smota\source\repos\APINTec\NTec.Application\bin\Debug\netcoreapp3.1\NTec.Domain.pdb
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.csproj.AssemblyReference.cache
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.AssemblyInfoInputs.cache
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.AssemblyInfo.cs
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.csproj.CoreCompileInputs.cache
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.csproj.CopyComplete
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.dll
+C:\Users\smota\source\repos\APINTec\NTec.Application\obj\Debug\netcoreapp3.1\NTec.Application.pdb

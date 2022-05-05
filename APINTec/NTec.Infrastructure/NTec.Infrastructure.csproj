@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CrossCutting\Interfaces\**" />
+    <Compile Remove="CrossCutting\Mapper\**" />
+    <EmbeddedResource Remove="CrossCutting\Interfaces\**" />
+    <EmbeddedResource Remove="CrossCutting\Mapper\**" />
+    <None Remove="CrossCutting\Interfaces\**" />
+    <None Remove="CrossCutting\Mapper\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NTec.Application\NTec.Application.csproj" />
+    <ProjectReference Include="..\NTec.Domain.Core\NTec.Domain.Core.csproj" />
+    <ProjectReference Include="..\NTec.Domain.Services\NTec.Domain.Services.csproj" />
+    <ProjectReference Include="..\NTec.Domain\NTec.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
