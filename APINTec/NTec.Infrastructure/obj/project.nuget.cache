@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2o1Y+5rDHk5B+McR4Xw2h6PruZp60jRfdxUHV3PLETInZ5tI+Z+dzE9N4nL4g3YjBXKOg1B5El0E1UutO3lI3Q==",
+  "dgSpecHash": "XIqzB0TCzTEHgikeD10AMbmBrdZCLjwL7y1o3i0l5UMJbQtPP04m4okEk12jwDu0JAayOpPks52rBDaU4hmpug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
+  "projectFilePath": "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\smota\\.nuget\\packages\\autofac\\5.1.4\\autofac.5.1.4.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

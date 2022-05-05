@@ -6116,11 +6116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.API\\NTec.API.csproj",
+      "projectUniqueName": "C:\\GitProjects\\APINTec\\NTec.API\\NTec.API.csproj",
       "projectName": "NTec.API",
-      "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.API\\NTec.API.csproj",
+      "projectPath": "C:\\GitProjects\\APINTec\\NTec.API\\NTec.API.csproj",
       "packagesPath": "C:\\Users\\smota\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.API\\obj\\",
+      "outputPath": "C:\\GitProjects\\APINTec\\NTec.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6140,8 +6140,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Infrastructure\\NTec.Infrastructure.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6w9APOFdkFCjBbiZSPW5f+fvIRivTs/khhYBK7VeRvAEr32cXvFwzHOv6MbXHNmKEP8ACi3bpRIuOXHljulLTg==",
+  "dgSpecHash": "j17BQl6RDYJ8p5NVK0FfgHEWIfRDpJRNF6caMqJFZX2YUDzUu9y/EDpCjlc/Q2r3ghngwd45d7ZFhnP2j4c0sw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.API\\NTec.API.csproj",
+  "projectFilePath": "C:\\GitProjects\\APINTec\\NTec.API\\NTec.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\smota\\.nuget\\packages\\autofac\\5.1.4\\autofac.5.1.4.nupkg.sha512",
     "C:\\Users\\smota\\.nuget\\packages\\autofac.extensions.dependencyinjection\\6.0.0\\autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512",

@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\NTec.Application.csproj",
+      "projectUniqueName": "C:\\GitProjects\\APINTec\\NTec.Application\\NTec.Application.csproj",
       "projectName": "NTec.Application",
-      "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\NTec.Application.csproj",
+      "projectPath": "C:\\GitProjects\\APINTec\\NTec.Application\\NTec.Application.csproj",
       "packagesPath": "C:\\Users\\smota\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Application\\obj\\",
+      "outputPath": "C:\\GitProjects\\APINTec\\NTec.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -75,8 +75,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj": {
-              "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj"
+            "C:\\GitProjects\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj": {
+              "projectPath": "C:\\GitProjects\\APINTec\\NTec.Domain.Core\\NTec.Domain.Core.csproj"
             }
           }
         }

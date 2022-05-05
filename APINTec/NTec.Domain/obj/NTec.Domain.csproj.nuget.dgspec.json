@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {}
+    "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {
+    "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj",
+        "projectUniqueName": "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj",
         "projectName": "NTec.Domain",
-        "projectPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\NTec.Domain.csproj",
+        "projectPath": "C:\\GitProjects\\APINTec\\NTec.Domain\\NTec.Domain.csproj",
         "packagesPath": "C:\\Users\\smota\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\smota\\source\\repos\\APINTec\\NTec.Domain\\obj\\",
+        "outputPath": "C:\\GitProjects\\APINTec\\NTec.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
