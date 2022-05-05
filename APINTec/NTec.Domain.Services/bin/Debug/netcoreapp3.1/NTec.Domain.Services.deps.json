@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "NTec.Domain.Services/1.0.0": {
+        "dependencies": {
+          "NTec.Domain.Core": "1.0.0"
+        },
+        "runtime": {
+          "NTec.Domain.Services.dll": {}
+        }
+      },
+      "NTec.Domain/1.0.0": {
+        "runtime": {
+          "NTec.Domain.dll": {}
+        }
+      },
+      "NTec.Domain.Core/1.0.0": {
+        "dependencies": {
+          "NTec.Domain": "1.0.0"
+        },
+        "runtime": {
+          "NTec.Domain.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NTec.Domain.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NTec.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NTec.Domain.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
