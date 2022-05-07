@@ -46,7 +46,7 @@ namespace NTec.Application
         public async Task<UsuarioDto> GetUsuarioByUserAndPassword(string login, string senha)
         {
             var usuario = await _usuarioService.GetUsuarioByUserAndPassword(login, senha);
-            return _usuarioMapper.EntityToDtoMapper(usuario);
+            return usuario != null ?_usuarioMapper.EntityToDtoMapper(usuario) : null;
         }
 
         public void Remove(int id)

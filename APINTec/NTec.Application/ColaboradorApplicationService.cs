@@ -32,8 +32,8 @@ namespace NTec.Application
 
         public IEnumerable<ColaboradorDto> GetAllAtivos()
         {
-            var setores = _colaboradorService.GetAll().Where(x => x.Ativo == true);
-            return _colaboradorMapper.ListColaboradoresDtoMapper(setores);
+            var colaboradores = _colaboradorService.GetAll().Where(x => x.Ativo == true);
+            return _colaboradorMapper.ListColaboradoresDtoMapper(colaboradores);
         }
 
         public ColaboradorDto GetById(int id)
