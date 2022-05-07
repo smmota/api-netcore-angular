@@ -22,30 +22,34 @@ namespace NTec.API.Controllers
         }
 
         [HttpPost]
-        [Route("login")]
+        [Route("auth")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Autenticate([FromBody] UsuarioDto usuarioDto)
+        public async Task<ActionResult<dynamic>> Autenticate([FromBody] LoginDto loginDto)
         {
             try
             {
+                if (string.IsNullOrEmpty(loginDto.LoginUser) || string.IsNullOrEmpty(loginDto.Senha))
+                    return NotFound((new { message = "Informe o usuário e senha!" }));
+
+                UsuarioDto usuarioDto = new UsuarioDto();
+                usuarioDto.LoginUser = loginDto.LoginUser;
+                usuarioDto.Senha = loginDto.Senha;
+
                 var usuario = await _usuarioApplicationService.GetUsuarioByUserAndPassword(usuarioDto.LoginUser, usuarioDto.Senha);
 
-
                 if (usuario == null)
-                    return NotFound((new { message = "Usuário ou senha inválidos "}));
+                    return NotFound((new { message = "Usuário ou senha inválidos"}));
 
                 var token = TokenService.GenerateToken(usuario);
                 usuario.Senha = "";
 
                 return new
                 {
-                    usuario = usuario,
                     token = token
                 };
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

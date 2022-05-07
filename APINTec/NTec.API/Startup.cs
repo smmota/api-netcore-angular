@@ -61,7 +61,7 @@ namespace NTec.API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api NTec", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Documentação Api NTec", Version = "v1" });
             });
         }
 
@@ -81,7 +81,7 @@ namespace NTec.API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api NTec");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Documentação Api NTec");
             });
 
             app.UseHttpsRedirection();

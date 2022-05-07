@@ -93,5 +93,22 @@ namespace NTec.API.Controllers
                 throw;
             }
         }
+
+        private void teste()
+        {
+            bool hasChildren = true;
+            IEnumerable<ColaboradorDto> colaboradoresAtivos = _colaboradorApplicationService.GetAllAtivos();
+
+            UserTreeDto userTreeDto = new UserTreeDto();
+            userTreeDto.Father = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(DBNull.Value)).FirstOrDefault();
+
+            while (hasChildren)
+            {
+                var teste = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(userTreeDto.Father.Id)).ToList();
+            }
+            
+            userTreeDto.Childrens = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(userTreeDto.Father.Id)).ToList();
+
+        }
     }
 }
