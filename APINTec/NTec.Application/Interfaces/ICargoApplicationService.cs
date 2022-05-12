@@ -5,11 +5,11 @@ namespace NTec.Application.Interfaces
 {
     public interface ICargoApplicationService
     {
-        void Add(CargoDto cargoDto);
+        bool Add(CargoDto cargoDto);
 
-        void Update(CargoDto cargoDto);
+        bool Update(CargoDto cargoDto);
 
-        void Remove(int id);
+        bool Remove(int id);
 
         IEnumerable<CargoDto> GetAll();
 

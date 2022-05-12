@@ -5,6 +5,6 @@ namespace NTec.Domain.Core.Interfaces.Repositories
 {
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
-        Task<Usuario> GetUsuarioByUserAndPassword(string login, string senha);
+        Usuario GetUsuarioByUserAndPassword(string login, string senha);
     }
 }

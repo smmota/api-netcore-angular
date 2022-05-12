@@ -8,5 +8,6 @@ namespace NTec.Domain.Core.Interfaces.Repositories
     {
         IEnumerable<Colaborador> ObterSubordinados(int idColaborador);
         bool VerificaSePossuiSubordinados(int idColaborador);
+        Colaborador ObterOrganograma();
     }
 }

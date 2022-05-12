@@ -18,10 +18,26 @@ namespace NTec.Application
             _setorMapper = setorMapper;
         }
 
-        public void Add(SetorDto setorDto)
+        public bool Add(SetorDto setorDto)
         {
-            var setor = _setorMapper.DtoToEntityMapper(setorDto);
-            _setorService.Add(setor);
+            bool retorno = false;
+
+            try
+            {
+                if (setorDto.Id != 0)
+                    throw new System.Exception("Setor não cadastrado! O Id deve ser 0");
+
+                var setor = _setorMapper.DtoToEntityMapper(setorDto);
+                _setorService.Add(setor);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao cadastrar o setor. " + ex.Message);
+            }
+
+            return retorno;
         }
 
         public IEnumerable<SetorDto> GetAll()
@@ -38,19 +54,64 @@ namespace NTec.Application
 
         public SetorDto GetById(int id)
         {
-            var setor = _setorService.GetById(id);
-            return _setorMapper.EntityToDtoMapper(setor);
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var setor = _setorService.GetById(id);
+
+                if (setor != null)
+                    return _setorMapper.EntityToDtoMapper(setor);
+                else
+                    return null;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao obter o setor. " + ex.Message);
+            }
         }
 
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-            _setorService.Remove(id);
+            bool retorno = false;
+
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                _setorService.Remove(id);
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao remover o setor informado! " + ex.Message);
+            }
+
+            return retorno;
         }
 
-        public void Update(SetorDto setorDto)
+        public bool Update(SetorDto setorDto)
         {
-            var setor = _setorMapper.DtoToEntityMapper(setorDto);
-            _setorService.Update(setor);
+            bool retorno = false;
+
+            try
+            {
+                if (setorDto.Id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var setor = _setorMapper.DtoToEntityMapper(setorDto);
+                _setorService.Update(setor);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao atualizar o setor! " + ex.Message);
+            }
+
+            return retorno;
         }
     }
 }

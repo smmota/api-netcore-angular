@@ -17,10 +17,26 @@ namespace NTec.Application
             _cargoMapper = cargoMapper;
         }
 
-        public void Add(CargoDto cargoDto)
+        public bool Add(CargoDto cargoDto)
         {
-            var cargo = _cargoMapper.DtoToEntityMapper(cargoDto);
-            _cargoService.Add(cargo);
+            bool retorno = false;
+
+            try
+            {
+                if (cargoDto.Id != 0)
+                    throw new System.Exception("Cargo não cadastrado! O Id deve ser 0");
+
+                var cargo = _cargoMapper.DtoToEntityMapper(cargoDto);
+                _cargoService.Add(cargo);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao cadastrar o cargo. " + ex.Message);
+            }
+
+            return retorno;
         }
 
         public IEnumerable<CargoDto> GetAll()
@@ -31,24 +47,64 @@ namespace NTec.Application
 
         public CargoDto GetById(int id)
         {
-            var cargo = _cargoService.GetById(id);
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
 
-            if (cargo != null)
-                return _cargoMapper.EntityToDtoMapper(cargo);
-            else
-                return null;
+                var cargo = _cargoService.GetById(id);
+
+                if (cargo != null)
+                    return _cargoMapper.EntityToDtoMapper(cargo);
+                else
+                    return null;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao obter o cargo. " + ex.Message);
+            }
+            
         }
 
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-            //var cargo = _cargoMapper.DtoToEntityMapper(cargoDto);
-            _cargoService.Remove(id);
+            bool retorno = false;
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                _cargoService.Remove(id);
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao remover o cargo informado! " + ex.Message);
+            }
+
+            return retorno;
         }
 
-        public void Update(CargoDto cargoDto)
+        public bool Update(CargoDto cargoDto)
         {
-            var cargo = _cargoMapper.DtoToEntityMapper(cargoDto);
-            _cargoService.Update(cargo);
+            bool retorno = false;
+
+            try
+            {
+                if (cargoDto.Id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var cargo = _cargoMapper.DtoToEntityMapper(cargoDto);
+                _cargoService.Update(cargo);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao atualizar o cargo! " + ex.Message);
+            }
+
+            return retorno;
         }
     }
 }

@@ -24,16 +24,40 @@ namespace NTec.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return Ok(_cargoApplicationService.GetAll());
+            try
+            {
+                var result = _cargoApplicationService.GetAll();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter os cargos.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<string>> Get(int id)
         {
-            if (id == 0)
-                return NotFound();
+            try
+            {
+                if (id == 0)
+                    return NotFound();
 
-            return Ok(_cargoApplicationService.GetById(id));
+                var result = _cargoApplicationService.GetById(id);
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter o cargo selecionado.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]
@@ -44,12 +68,15 @@ namespace NTec.API.Controllers
                 if (cargoDto == null)
                     return NotFound();
 
-                _cargoApplicationService.Add(cargoDto);
-                return Ok("Cargo cadastrado com sucesso!");
+                var result = _cargoApplicationService.Add(cargoDto);
+
+                if (result)
+                    return Ok("Cargo cadastrado com sucesso!");
+                else
+                    return BadRequest("Erro ao cadastrar o cargo!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -62,12 +89,15 @@ namespace NTec.API.Controllers
                 if (cargoDto == null)
                     return NotFound();
 
-                _cargoApplicationService.Update(cargoDto);
-                return Ok("Cargo atualizado com sucesso!");
+                var result = _cargoApplicationService.Update(cargoDto);
+
+                if (result)
+                    return Ok("Cargo atualizado com sucesso!");
+                else
+                    return BadRequest("Erro ao atualizar o cargo!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -85,12 +115,15 @@ namespace NTec.API.Controllers
                 if (cargoDto == null)
                     return NotFound();
 
-                _cargoApplicationService.Remove(id);
-                return Ok("Cargo removido com sucesso!");
+                var result = _cargoApplicationService.Remove(id);
+
+                if (result)
+                    return Ok("Cargo removido com sucesso!");
+                else
+                    return BadRequest("Erro ao remover o cargo!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

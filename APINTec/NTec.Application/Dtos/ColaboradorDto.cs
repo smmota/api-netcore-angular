@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NTec.Application.Dtos
 {
@@ -13,6 +14,7 @@ namespace NTec.Application.Dtos
         public int IdCargo { get; set; }
         public bool Ativo { get; set; }
         public int? IdSuperiorImediato { get; set; }
+        public IEnumerable<ColaboradorDto> Subordinados { get; set; }
     }
 }
 

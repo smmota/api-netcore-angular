@@ -19,10 +19,26 @@ namespace NTec.Application
             _usuarioMapper = usuarioMapper;
         }
 
-        public void Add(UsuarioDto usuarioDto)
+        public bool Add(UsuarioDto usuarioDto)
         {
-            var setor = _usuarioMapper.DtoToEntityMapper(usuarioDto);
-            _usuarioService.Add(setor);
+            bool retorno = false;
+
+            try
+            {
+                if (usuarioDto.Id != 0)
+                    throw new System.Exception("Usuário não cadastrado! O Id deve ser 0");
+
+                var usuario = _usuarioMapper.DtoToEntityMapper(usuarioDto);
+                _usuarioService.Add(usuario);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao cadastrar o usuário. " + ex.Message);
+            }
+
+            return retorno;
         }
 
         public IEnumerable<UsuarioDto> GetAll()
@@ -39,25 +55,73 @@ namespace NTec.Application
 
         public UsuarioDto GetById(int id)
         {
-            var usuario = _usuarioService.GetById(id);
-            return _usuarioMapper.EntityToDtoMapper(usuario);
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var usuario = _usuarioService.GetById(id);
+
+                if (usuario != null)
+                    return _usuarioMapper.EntityToDtoMapper(usuario);
+                else
+                    return null;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao obter o usuário. " + ex.Message);
+            }
         }
 
-        public async Task<UsuarioDto> GetUsuarioByUserAndPassword(string login, string senha)
+        public UsuarioDto GetUsuarioByUserAndPassword(string login, string senha)
         {
-            var usuario = await _usuarioService.GetUsuarioByUserAndPassword(login, senha);
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(senha))
+                throw new System.Exception("Usuário e senha são obrigatórios!");
+
+            var usuario = _usuarioService.GetUsuarioByUserAndPassword(login, senha);
             return usuario != null ?_usuarioMapper.EntityToDtoMapper(usuario) : null;
         }
 
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-            _usuarioService.Remove(id);
+            bool retorno = false;
+
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                _usuarioService.Remove(id);
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao remover o usuário informado! " + ex.Message);
+            }
+
+            return retorno;
         }
 
-        public void Update(UsuarioDto usuarioDto)
+        public bool Update(UsuarioDto usuarioDto)
         {
-            var usuario = _usuarioMapper.DtoToEntityMapper(usuarioDto);
-            _usuarioService.Update(usuario);
+            bool retorno = false;
+
+            try
+            {
+                if (usuarioDto.Id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var usuario = _usuarioMapper.DtoToEntityMapper(usuarioDto);
+                _usuarioService.Update(usuario);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao atualizar o usuário! " + ex.Message);
+            }
+
+            return retorno;
         }
     }
 }

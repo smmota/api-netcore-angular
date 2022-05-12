@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NTec.Application.Dtos;
 using NTec.Application.Interfaces;
+using NTec.Domain.Core.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,22 +16,51 @@ namespace NTec.API.Controllers
     public class ColaboradorController : Controller
     {
         private readonly IColaboradorApplicationService _colaboradorApplicationService;
+        private readonly IColaboradorRepository _colaboradorRepository;
 
-        public ColaboradorController(IColaboradorApplicationService colaboradorApplicationService)
+        public ColaboradorController(IColaboradorApplicationService colaboradorApplicationService, IColaboradorRepository colaboradorRepository)
         {
             _colaboradorApplicationService = colaboradorApplicationService;
+            _colaboradorRepository = colaboradorRepository;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return Ok(_colaboradorApplicationService.GetAll());
+            try
+            {
+                var result = _colaboradorApplicationService.GetAll();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter os colaboradores.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<string>> Get(int id)
         {
-            return Ok(_colaboradorApplicationService.GetById(id));
+            try
+            {
+                if (id == 0)
+                    return NotFound();
+
+                var result = _colaboradorApplicationService.GetById(id);
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter o colaborador selecionado.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]
@@ -41,12 +71,15 @@ namespace NTec.API.Controllers
                 if (colaboradorDto == null)
                     return NotFound();
 
-                _colaboradorApplicationService.Add(colaboradorDto);
-                return Ok("Colaborador cadastrado com sucesso!");
+                var result = _colaboradorApplicationService.Add(colaboradorDto);
+
+                if (result)
+                    return Ok("Colaborador cadastrado com sucesso!");
+                else
+                    return BadRequest("Erro ao cadastrar o colaborador!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -59,12 +92,15 @@ namespace NTec.API.Controllers
                 if (colaboradorDto == null)
                     return NotFound();
 
-                _colaboradorApplicationService.Update(colaboradorDto);
-                return Ok("Colaborador atualizado com sucesso!");
+                var result = _colaboradorApplicationService.Update(colaboradorDto);
+
+                if (result)
+                    return Ok("Colaborador atualizado com sucesso!");
+                else
+                    return BadRequest("Erro ao atualizar o colaborador!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -85,30 +121,17 @@ namespace NTec.API.Controllers
                 if (_colaboradorApplicationService.VerificaSePossuiSubordinados(colaboradorDto.Id))
                     return UnprocessableEntity("Não foi possível remover o registro selecionado. O colaborador possui subordinados alocados na estrutura.");
 
-                _colaboradorApplicationService.Remove(id);
-                return Ok("Colaborador removido com sucesso!");
+                var result = _colaboradorApplicationService.Remove(id);
+
+                if (result)
+                    return Ok("Colaborador removido com sucesso!");
+                else
+                    return BadRequest("Erro ao remover o colaborador!");
             }
             catch (Exception)
             {
                 throw;
             }
-        }
-
-        private void teste()
-        {
-            bool hasChildren = true;
-            IEnumerable<ColaboradorDto> colaboradoresAtivos = _colaboradorApplicationService.GetAllAtivos();
-
-            UserTreeDto userTreeDto = new UserTreeDto();
-            userTreeDto.Father = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(DBNull.Value)).FirstOrDefault();
-
-            while (hasChildren)
-            {
-                var teste = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(userTreeDto.Father.Id)).ToList();
-            }
-            
-            userTreeDto.Childrens = colaboradoresAtivos.Where(x => x.IdSuperiorImediato.Equals(userTreeDto.Father.Id)).ToList();
-
         }
     }
 }

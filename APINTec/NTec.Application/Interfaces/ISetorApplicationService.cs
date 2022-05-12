@@ -5,11 +5,11 @@ namespace NTec.Application.Interfaces
 {
     public interface ISetorApplicationService
     {
-        void Add(SetorDto setorDto);
+        bool Add(SetorDto setorDto);
 
-        void Update(SetorDto setorDto);
+        bool Update(SetorDto setorDto);
 
-        void Remove(int id);
+        bool Remove(int id);
 
         IEnumerable<SetorDto> GetAll();
 
