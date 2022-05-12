@@ -14,6 +14,11 @@ namespace NTec.Domain.Services
             _colaboradorRepository = colaboradorRepository;
         }
 
+        public Colaborador ObterOrganograma()
+        {
+            return _colaboradorRepository.ObterOrganograma();
+        }
+
         public IEnumerable<Colaborador> ObterSubordinados(int idColaborador)
         {
             return _colaboradorRepository.ObterSubordinados(idColaborador);

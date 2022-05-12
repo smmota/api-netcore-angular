@@ -14,7 +14,7 @@ namespace NTec.Application.Dtos
         public int IdCargo { get; set; }
         public bool Ativo { get; set; }
         public int? IdSuperiorImediato { get; set; }
-        public IEnumerable<ColaboradorDto> Subordinados { get; set; }
+        public ICollection<ColaboradorDto> Subordinados { get; set; }
     }
 }
 
