@@ -18,10 +18,26 @@ namespace NTec.Application
             _colaboradorMapper = colaboradorMapper;
         }
 
-        public void Add(ColaboradorDto colaboradorDto)
+        public bool Add(ColaboradorDto colaboradorDto)
         {
-            var setor = _colaboradorMapper.DtoToEntityMapper(colaboradorDto);
-            _colaboradorService.Add(setor);
+            bool retorno = false;
+
+            try
+            {
+                if (colaboradorDto.Id != 0)
+                    throw new System.Exception("Colaborador não cadastrado! O Id deve ser 0");
+
+                var colaborador = _colaboradorMapper.DtoToEntityMapper(colaboradorDto);
+                _colaboradorService.Add(colaborador);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao cadastrar o colaborador. " + ex.Message);
+            }
+
+            return retorno;
         }
 
         public IEnumerable<ColaboradorDto> GetAll()
@@ -38,8 +54,22 @@ namespace NTec.Application
 
         public ColaboradorDto GetById(int id)
         {
-            var setor = _colaboradorService.GetById(id);
-            return _colaboradorMapper.EntityToDtoMapper(setor);
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var colaborador = _colaboradorService.GetById(id);
+
+                if (colaborador != null)
+                    return _colaboradorMapper.EntityToDtoMapper(colaborador);
+                else
+                    return null;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao obter o colaborador. " + ex.Message);
+            }
         }
 
         public IEnumerable<ColaboradorDto> ObterSubordinados(int idColaborador)
@@ -48,15 +78,46 @@ namespace NTec.Application
             return _colaboradorMapper.ListColaboradoresDtoMapper(colaboradores);
         }
 
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-            _colaboradorService.Remove(id);
+            bool retorno = false;
+
+            try
+            {
+                if (id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                _colaboradorService.Remove(id);
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao remover o colaborador informado! " + ex.Message);
+            }
+
+            return retorno;
         }
 
-        public void Update(ColaboradorDto colaboradorDto)
+        public bool Update(ColaboradorDto colaboradorDto)
         {
-            var colaborador = _colaboradorMapper.DtoToEntityMapper(colaboradorDto);
-            _colaboradorService.Update(colaborador);
+            bool retorno = false;
+
+            try
+            {
+                if (colaboradorDto.Id == 0)
+                    throw new System.Exception("O Id informado é inválido!");
+
+                var colaborador = _colaboradorMapper.DtoToEntityMapper(colaboradorDto);
+                _colaboradorService.Update(colaborador);
+
+                retorno = true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Erro ao atualizar o colaborador! " + ex.Message);
+            }
+
+            return retorno;
         }
 
         public bool VerificaSePossuiSubordinados(int idColaborador)

@@ -5,6 +5,6 @@ namespace NTec.Domain.Core.Interfaces.Services
 {
     public interface IUsuarioService : IBaseService<Usuario>
     {
-        Task<Usuario> GetUsuarioByUserAndPassword(string login, string senha);
+        Usuario GetUsuarioByUserAndPassword(string login, string senha);
     }
 }

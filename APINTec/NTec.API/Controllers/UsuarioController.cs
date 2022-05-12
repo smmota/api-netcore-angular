@@ -26,13 +26,40 @@ namespace NTec.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return Ok(_usuarioApplicationService.GetAll());
+            try
+            {
+                var result = _usuarioApplicationService.GetAll();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter os usuários.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<string>> Get(int id)
         {
-            return Ok(_usuarioApplicationService.GetById(id));
+            try
+            {
+                if (id == 0)
+                    return NotFound();
+
+                var result = _usuarioApplicationService.GetById(id);
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter o usuário selecionado.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]
@@ -46,12 +73,15 @@ namespace NTec.API.Controllers
                 //CriptoService criptoService = new CriptoService();
                 //usuarioDto.HashPwd = criptoService.CreateHash(usuarioDto.Senha);
 
-                _usuarioApplicationService.Add(usuarioDto);
-                return Ok("Usuário cadastrado com sucesso!");
+                var result = _usuarioApplicationService.Add(usuarioDto);
+
+                if (result)
+                    return Ok("Usuário cadastrado com sucesso!");
+                else
+                    return BadRequest("Erro ao cadastrar o usuário!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -64,12 +94,15 @@ namespace NTec.API.Controllers
                 if (usuarioDto == null)
                     return NotFound();
 
-                _usuarioApplicationService.Update(usuarioDto);
-                return Ok("Usuário atualizado com sucesso!");
+                var result = _usuarioApplicationService.Update(usuarioDto);
+
+                if (result)
+                    return Ok("Usuário atualizado com sucesso!");
+                else
+                    return BadRequest("Erro ao atualizar o usuário!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -87,8 +120,12 @@ namespace NTec.API.Controllers
                 if (usuarioDto == null)
                     return NotFound();
 
-                _usuarioApplicationService.Remove(id);
-                return Ok("Usuário removido com sucesso!");
+                var result = _usuarioApplicationService.Remove(id);
+
+                if (result)
+                    return Ok("Usuário removido com sucesso!");
+                else
+                    return BadRequest("Erro ao remover o usuário!");
             }
             catch (Exception)
             {

@@ -14,9 +14,9 @@ namespace NTec.Domain.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public async Task<Usuario> GetUsuarioByUserAndPassword(string login, string senha)
+        public Usuario GetUsuarioByUserAndPassword(string login, string senha)
         {
-            return await _usuarioRepository.GetUsuarioByUserAndPassword(login, senha);
+            return _usuarioRepository.GetUsuarioByUserAndPassword(login, senha);
         }
     }
 }

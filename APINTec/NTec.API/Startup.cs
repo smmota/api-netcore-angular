@@ -28,6 +28,7 @@ namespace NTec.API
             Configuration = configuration;
         }
 
+        readonly string CorsPolicy = "_corsPolicy";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -39,6 +40,14 @@ namespace NTec.API
             services.AddCors();
             services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsPolicy,
+                    builder => builder.WithOrigins("http://localhost:4200", "http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>
@@ -73,6 +82,11 @@ namespace NTec.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(x => x
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -88,10 +102,7 @@ namespace NTec.API
 
             app.UseRouting();
 
-            app.UseCors(x => x
-                    .AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader());
+            app.UseCors("*");
 
             app.UseAuthentication();
             app.UseAuthorization();

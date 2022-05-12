@@ -5,11 +5,11 @@ namespace NTec.Application.Interfaces
 {
     public interface IColaboradorApplicationService
     {
-        void Add(ColaboradorDto colaboradorDto);
+        bool Add(ColaboradorDto colaboradorDto);
 
-        void Update(ColaboradorDto colaboradorDto);
+        bool Update(ColaboradorDto colaboradorDto);
 
-        void Remove(int id);
+        bool Remove(int id);
 
         IEnumerable<ColaboradorDto> GetAll();
 

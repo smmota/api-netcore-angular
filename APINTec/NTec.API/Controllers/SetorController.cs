@@ -24,13 +24,40 @@ namespace NTec.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return Ok(_setorApplicationService.GetAll());
+            try
+            {
+                var result = _setorApplicationService.GetAll();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter os setores.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<string>> Get(int id)
         {
-            return Ok(_setorApplicationService.GetById(id));
+            try
+            {
+                if (id == 0)
+                    return NotFound();
+
+                var result = _setorApplicationService.GetById(id);
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest("Erro ao obter o setor selecionado.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]
@@ -41,12 +68,15 @@ namespace NTec.API.Controllers
                 if (setorDto == null)
                     return NotFound();
 
-                _setorApplicationService.Add(setorDto);
-                return Ok("Setor cadastrado com sucesso!");
+                var result = _setorApplicationService.Add(setorDto);
+
+                if (result)
+                    return Ok("Setor cadastrado com sucesso!");
+                else
+                    return BadRequest("Erro ao cadastrar o setor!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -59,12 +89,15 @@ namespace NTec.API.Controllers
                 if (setorDto == null)
                     return NotFound();
 
-                _setorApplicationService.Update(setorDto);
-                return Ok("Setor atualizado com sucesso!");
+                var result = _setorApplicationService.Update(setorDto);
+
+                if (result)
+                    return Ok("Setor atualizado com sucesso!");
+                else
+                    return BadRequest("Erro ao atualizar o setor!");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -82,8 +115,12 @@ namespace NTec.API.Controllers
                 if (setorDto == null)
                     return NotFound();
 
-                _setorApplicationService.Remove(id);
-                return Ok("Setor removido com sucesso!");
+                var result = _setorApplicationService.Remove(id);
+
+                if (result)
+                    return Ok("Setor removido com sucesso!");
+                else
+                    return BadRequest("Erro ao remover o setor!");
             }
             catch (Exception)
             {

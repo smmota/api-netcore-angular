@@ -6,11 +6,11 @@ namespace NTec.Application.Interfaces
 {
     public interface IUsuarioApplicationService
     {
-        void Add(UsuarioDto usuarioDto);
+        bool Add(UsuarioDto usuarioDto);
 
-        void Update(UsuarioDto usuarioDto);
+        bool Update(UsuarioDto usuarioDto);
 
-        void Remove(int id);
+        bool Remove(int id);
 
         IEnumerable<UsuarioDto> GetAll();
 
@@ -18,6 +18,6 @@ namespace NTec.Application.Interfaces
 
         IEnumerable<UsuarioDto> GetAllAtivos();
 
-        Task<UsuarioDto> GetUsuarioByUserAndPassword(string login, string senha);
+        UsuarioDto GetUsuarioByUserAndPassword(string login, string senha);
     }
 }

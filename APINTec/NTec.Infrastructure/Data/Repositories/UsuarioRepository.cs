@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NTec.Domain.Core.Interfaces.Repositories;
 using NTec.Domain.Entities;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NTec.Infrastructure.Data.Repositories
@@ -14,9 +15,9 @@ namespace NTec.Infrastructure.Data.Repositories
             _sqlContext = sqlContext;
         }
 
-        public async Task<Usuario> GetUsuarioByUserAndPassword(string login, string senha)
+        public Usuario GetUsuarioByUserAndPassword(string login, string senha)
         {
-            return await _sqlContext.Usuario.AsNoTracking().SingleOrDefaultAsync(u => u.LoginUser == login && u.Senha == senha);
+           return _sqlContext.Usuario.Where(u => u.LoginUser == login && u.Senha == senha).FirstOrDefault();
         }
     }
 }
