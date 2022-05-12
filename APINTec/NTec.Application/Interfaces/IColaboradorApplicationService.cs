@@ -1,4 +1,5 @@
 ﻿using NTec.Application.Dtos;
+using NTec.Domain.Entities;
 using System.Collections.Generic;
 
 namespace NTec.Application.Interfaces
@@ -20,5 +21,7 @@ namespace NTec.Application.Interfaces
         IEnumerable<ColaboradorDto> ObterSubordinados(int idColaborador);
 
         bool VerificaSePossuiSubordinados(int idColaborador);
+
+        public Colaborador ObterOrganograma();
     }
 }

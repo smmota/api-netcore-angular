@@ -7,5 +7,6 @@ namespace NTec.Domain.Core.Interfaces.Services
     {
         IEnumerable<Colaborador> ObterSubordinados(int idColaborador);
         bool VerificaSePossuiSubordinados(int idColaborador);
+        Colaborador ObterOrganograma();
     }
 }

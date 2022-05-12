@@ -31,7 +31,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter os setores.");
+                    return NotFound("Nenhum setor foi encontrado!");
             }
             catch (Exception)
             {
@@ -52,11 +52,11 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter o setor selecionado.");
+                    return NotFound("Setor não encontrado!");
             }
             catch (Exception)
             {
-                throw;
+                throw new Exception("Erro ao obter o setor selecionado.");
             }
         }
 

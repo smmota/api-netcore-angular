@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mappers\Interfaces\IOrganogramaMapper.cs" />
+    <Compile Remove="Mappers\OrganogramaMapper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NTec.Domain.Core\NTec.Domain.Core.csproj" />
   </ItemGroup>
 

@@ -31,7 +31,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter os cargos.");
+                    return NotFound("Nenhum cargo foi encontrado!");
             }
             catch (Exception)
             {
@@ -52,7 +52,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter o cargo selecionado.");
+                    return NotFound("O cargo selecionado não foi encontrado!");
             }
             catch (Exception)
             {

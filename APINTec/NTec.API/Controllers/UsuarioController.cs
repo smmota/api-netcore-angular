@@ -33,7 +33,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter os usuários.");
+                    return NotFound("Nenhum usuário foi encontrato!");
             }
             catch (Exception)
             {
@@ -54,7 +54,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return BadRequest("Erro ao obter o usuário selecionado.");
+                    return NotFound("O usuário selecionado não foi encontrado!");
             }
             catch (Exception)
             {

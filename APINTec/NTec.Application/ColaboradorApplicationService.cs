@@ -2,6 +2,7 @@
 using NTec.Application.Interfaces;
 using NTec.Application.Mappers.Interfaces;
 using NTec.Domain.Core.Interfaces.Services;
+using NTec.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +13,9 @@ namespace NTec.Application
         private readonly IColaboradorService _colaboradorService;
         private readonly IColaboradorMapper _colaboradorMapper;
 
-        public ColaboradorApplicationService(IColaboradorService colaboradorService, IColaboradorMapper colaboradorMapper)
+        public ColaboradorApplicationService(
+            IColaboradorService colaboradorService, 
+            IColaboradorMapper colaboradorMapper)
         {
             _colaboradorService = colaboradorService;
             _colaboradorMapper = colaboradorMapper;
@@ -70,6 +73,11 @@ namespace NTec.Application
             {
                 throw new System.Exception("Erro ao obter o colaborador. " + ex.Message);
             }
+        }
+
+        public Colaborador ObterOrganograma()
+        {
+            return _colaboradorService.ObterOrganograma();
         }
 
         public IEnumerable<ColaboradorDto> ObterSubordinados(int idColaborador)
