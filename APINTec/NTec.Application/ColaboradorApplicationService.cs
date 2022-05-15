@@ -12,13 +12,19 @@ namespace NTec.Application
     {
         private readonly IColaboradorService _colaboradorService;
         private readonly IColaboradorMapper _colaboradorMapper;
+        private readonly ICargoApplicationService _cargoApplicationService;
+        private readonly ISetorApplicationService _setorApplicationService;
 
         public ColaboradorApplicationService(
-            IColaboradorService colaboradorService, 
+            IColaboradorService colaboradorService,
+            ICargoApplicationService cargoApplicationService,
+            ISetorApplicationService setorApplicationService,
             IColaboradorMapper colaboradorMapper)
         {
             _colaboradorService = colaboradorService;
             _colaboradorMapper = colaboradorMapper;
+            _cargoApplicationService = cargoApplicationService;
+            _setorApplicationService = setorApplicationService;
         }
 
         public bool Add(ColaboradorDto colaboradorDto)
@@ -45,8 +51,20 @@ namespace NTec.Application
 
         public IEnumerable<ColaboradorDto> GetAll()
         {
+            //Ajustar esse método para retornar direto do mapeamento.
             var colaboradores = _colaboradorService.GetAll();
-            return _colaboradorMapper.ListColaboradoresDtoMapper(colaboradores);
+            var colaboradoresDto = _colaboradorMapper.ListColaboradoresDtoMapper(colaboradores);
+            List<ColaboradorDto> lista = new List<ColaboradorDto>();
+
+            foreach (var colaborador in colaboradoresDto)
+            {
+                colaborador.Cargo = _cargoApplicationService.GetById(colaborador.IdCargo);
+                colaborador.Setor = _setorApplicationService.GetById(colaborador.IdSetor);
+
+                lista.Add(colaborador);
+            }
+
+            return lista;
         }
 
         public IEnumerable<ColaboradorDto> GetAllAtivos()

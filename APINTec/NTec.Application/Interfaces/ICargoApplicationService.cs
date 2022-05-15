@@ -14,5 +14,7 @@ namespace NTec.Application.Interfaces
         IEnumerable<CargoDto> GetAll();
 
         CargoDto GetById(int id);
+
+        IEnumerable<CargoDto> GetAllAtivos();
     }
 }

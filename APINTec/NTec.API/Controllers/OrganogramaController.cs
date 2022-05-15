@@ -11,7 +11,7 @@ namespace NTec.API.Controllers
 {
     [Route("organograma")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class OrganogramaController : Controller
     {
         private readonly IColaboradorApplicationService _colaboradorApplicationService;

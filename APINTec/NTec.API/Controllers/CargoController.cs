@@ -11,7 +11,7 @@ namespace NTec.API.Controllers
 {
     [Route("cargo")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CargoController : Controller
     {
         private readonly ICargoApplicationService _cargoApplicationService;
@@ -53,6 +53,25 @@ namespace NTec.API.Controllers
                     return Ok(result);
                 else
                     return NotFound("O cargo selecionado não foi encontrado!");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [Route("ativos")]
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> GetAtivos()
+        {
+            try
+            {
+                var result = _cargoApplicationService.GetAllAtivos();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return NotFound("Nenhum cargo foi encontrado!");
             }
             catch (Exception)
             {

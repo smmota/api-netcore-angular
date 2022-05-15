@@ -27,63 +27,6 @@ namespace NTec.Application.Mappers
 
         public ColaboradorDto EntityToDtoMapper(Colaborador colaborador)
         {
-            //bool hasChildren = true;
-
-            //ColaboradorDto colaboradorDto = new ColaboradorDto();
-            //colaboradorDto.Id = colaborador.Id;
-            //colaboradorDto.Nome = colaborador.Nome;
-            //colaboradorDto.DataNascimento = colaborador.DataNascimento;
-            //colaboradorDto.CPF = colaborador.CPF;
-            //colaboradorDto.Endereco = colaborador.Endereco;
-            //colaboradorDto.IdSetor = colaborador.IdSetor;
-            //colaboradorDto.IdCargo = colaborador.IdCargo;
-            //colaboradorDto.Ativo = colaborador.Ativo;
-            //colaboradorDto.IdSuperiorImediato = colaborador.IdSuperiorImediato;
-
-            //if (colaborador.Subordinados != null)
-            //{
-
-            //}
-            //while (hasChildren)
-            //{
-
-            //}
-
-
-
-            //ColaboradorDto colaboradorDto = new ColaboradorDto();
-
-            //colaboradorDto.Id = colaborador.Id;
-            //colaboradorDto.Nome = colaborador.Nome;
-            //colaboradorDto.DataNascimento = colaborador.DataNascimento;
-            //colaboradorDto.CPF = colaborador.CPF;
-            //colaboradorDto.Endereco = colaborador.Endereco;
-            //colaboradorDto.IdSetor = colaborador.IdSetor;
-            //colaboradorDto.IdCargo = colaborador.IdCargo;
-            //colaboradorDto.Ativo = colaborador.Ativo;
-            //colaboradorDto.IdSuperiorImediato = colaborador.IdSuperiorImediato;
-
-            //colaboradorDto.Subordinados = new List<ColaboradorDto>();
-
-            //foreach (var subordinado in colaborador.Subordinados)
-            //{
-            //    colaboradorDto.Subordinados.Add(
-            //        new ColaboradorDto()
-            //        {
-            //            Id = subordinado.Id,
-            //            Nome = subordinado.Nome,
-            //            DataNascimento = subordinado.DataNascimento,
-            //            CPF = subordinado.CPF,
-            //            Endereco = subordinado.Endereco,
-            //            IdSetor = subordinado.IdSetor,
-            //            IdCargo = subordinado.IdCargo,
-            //            Ativo = subordinado.Ativo,
-            //            IdSuperiorImediato = subordinado.IdSuperiorImediato
-            //        });
-            //}
-
-            //return colaboradorDto;
-
             return
                 new ColaboradorDto()
                 {
@@ -112,7 +55,7 @@ namespace NTec.Application.Mappers
                     IdSetor = x.IdSetor,
                     IdCargo = x.IdCargo,
                     Ativo = x.Ativo,
-                    IdSuperiorImediato = x.IdSuperiorImediato
+                    IdSuperiorImediato = x.IdSuperiorImediato,
                 });
         }
     }
