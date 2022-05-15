@@ -13,7 +13,7 @@ namespace NTec.API.Controllers
 {
     [Route("usuario")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioApplicationService _usuarioApplicationService;

@@ -3,6 +3,7 @@ using NTec.Application.Interfaces;
 using NTec.Application.Mappers.Interfaces;
 using NTec.Domain.Core.Interfaces.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NTec.Application
 {
@@ -105,6 +106,12 @@ namespace NTec.Application
             }
 
             return retorno;
+        }
+
+        public IEnumerable<CargoDto> GetAllAtivos()
+        {
+            var cargos = _cargoService.GetAll().Where(x => x.Ativo == true);
+            return _cargoMapper.ListCargosDtoMapper(cargos);
         }
     }
 }

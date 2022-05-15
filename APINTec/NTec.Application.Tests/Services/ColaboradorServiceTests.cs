@@ -1,4 +1,5 @@
 ﻿using Moq;
+using NTec.Application.Interfaces;
 using NTec.Application.Mappers.Interfaces;
 using NTec.Domain.Core.Interfaces.Services;
 using System;
@@ -12,7 +13,7 @@ namespace NTec.Application.Tests.Services
 
         public ColaboradorServiceTests()
         {
-            colaboradorApplicationService = new ColaboradorApplicationService(new Mock<IColaboradorService>().Object, new Mock<IColaboradorMapper>().Object);
+            colaboradorApplicationService = new ColaboradorApplicationService(new Mock<IColaboradorService>().Object, new Mock<ICargoApplicationService>().Object, new Mock<ISetorApplicationService>().Object, new Mock<IColaboradorMapper>().Object);
         }
 
         [Fact]

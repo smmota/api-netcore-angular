@@ -12,7 +12,7 @@ namespace NTec.API.Controllers
 {
     [Route("colaborador")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ColaboradorController : Controller
     {
         private readonly IColaboradorApplicationService _colaboradorApplicationService;
@@ -34,7 +34,7 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return NotFound("Nenhum cargo foi encontrato!");
+                    return NotFound("Nenhum colaborador foi encontrato!");
             }
             catch (Exception)
             {
@@ -55,7 +55,26 @@ namespace NTec.API.Controllers
                 if (result != null)
                     return Ok(result);
                 else
-                    return NotFound("O cargo selecionado não foi encontrado.");
+                    return NotFound("O colaborador selecionado não foi encontrado.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [Route("ativos")]
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> GetAtivos()
+        {
+            try
+            {
+                var result = _colaboradorApplicationService.GetAllAtivos();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return NotFound("Nenhum colaborador foi encontrato!");
             }
             catch (Exception)
             {

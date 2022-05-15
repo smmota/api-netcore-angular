@@ -11,7 +11,7 @@ namespace NTec.API.Controllers
 {
     [Route("setor")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class SetorController : Controller
     {
         private readonly ISetorApplicationService _setorApplicationService;
@@ -27,6 +27,25 @@ namespace NTec.API.Controllers
             try
             {
                 var result = _setorApplicationService.GetAll();
+
+                if (result != null)
+                    return Ok(result);
+                else
+                    return NotFound("Nenhum setor foi encontrado!");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [Route("ativos")]
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> GetAtivos()
+        {
+            try
+            {
+                var result = _setorApplicationService.GetAllAtivos();
 
                 if (result != null)
                     return Ok(result);

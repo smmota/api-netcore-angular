@@ -12,6 +12,8 @@ namespace NTec.Application.Dtos
         public string Endereco { get; set; }
         public int IdSetor { get; set; }
         public int IdCargo { get; set; }
+        public CargoDto Cargo { get; set; }
+        public SetorDto Setor { get; set; }
         public bool Ativo { get; set; }
         public int? IdSuperiorImediato { get; set; }
         public ICollection<ColaboradorDto> Subordinados { get; set; }
